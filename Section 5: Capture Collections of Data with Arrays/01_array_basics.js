@@ -36,3 +36,6 @@ let toDo = [ 'Bake bread', 'Run a mile' ];
 // let taskComplete = toDo.pop();
 let taskComplete = toDo.shift();
 console.log(`Well done! You have just completed the "${taskComplete}" activity!`);
+
+// We can unshift/push multiple items at a time
+// zepAlbums.unshift('In Through The Out Door', 'Coda');
