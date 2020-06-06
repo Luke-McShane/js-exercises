@@ -1,6 +1,5 @@
 let day = 'Saturday';
-
-switch (day.toUpperCase) {
+switch (day.toUpperCase()) {
 	// The break statement stops the remainder of the code in this switch statement to be run
 	case 'MONDAY':
 		console.log('The day is Monday');
@@ -34,7 +33,7 @@ switch (day.toUpperCase) {
 
 let emoji = 'sad face';
 
-switch (emoji.toLowerCase) {
+switch (emoji.toLowerCase()) {
 	//If we have an output/execution statement that pertains to multiple cases, then we can just
 	// line the case statements up as such for, when they enter the execution statement, they will break
 	// and no more code in the switch statement will be run.
