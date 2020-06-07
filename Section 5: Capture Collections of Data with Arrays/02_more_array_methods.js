@@ -48,3 +48,13 @@ console.log(`Mammals: ${mammals}`);
 console.log(`Reptiles: ${reptiles}`);
 console.log(`4-legged animals: ${quadruped}`);
 console.log(`A copy of the animals array: ${animalsCopy}`);
+
+// At index 2, delete nothing and add the value given
+animals.splice(2, 0, 'octopus');
+
+// At index 2, delete 2 items and replace them with the two given
+animals.splice(2, 2, 'orca', 'tuna');
+
+// Doesn't sort based on the int type, but converts to a string and compares the UTF values
+let nums = [ 1, 10000, 33, 44, 2939 ];
+nums.sort();
