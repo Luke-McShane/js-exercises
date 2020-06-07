@@ -19,3 +19,6 @@ while (guess !== target) {
 	console.log(`Target: ${target}   Guess: ${guess}`);
 }
 console.log('CONGRATS! YOU WIN!');
+
+// We can also use 'break' to break out of the current loop. This will only break out of the current loop,
+// so if we have an inner loop, then it will only break out of that inner loop and the outer loop will continue as normal
