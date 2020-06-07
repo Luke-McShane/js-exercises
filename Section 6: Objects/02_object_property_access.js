@@ -73,3 +73,9 @@ console.log(`Tim's address is a '${customers[2].address}'`);
 
 // We can also set another variable to an object already defined, even if using const, this is because the variable
 // uses a reference
+// This also helps explain array and object equality. Evaluating [] === [] will return false, because each array is
+// a reference to a different place in memory. For these to evaluate as true, we would do:
+
+let myArr = [];
+let myOtherArr = myArr;
+console.log(myArr === myOtherArr);
