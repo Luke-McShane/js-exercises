@@ -1,3 +1,5 @@
+// let and const are block-scoped, var is not
+
 // The let and const keywords are used to define variables in one scope, and their corresponding values
 // cannot be redefined from a scope that can access their values. A scope defined within one scope can access
 // a let or const value from an encapsulating scope, but only we cannot declare multiple variables of the same name
@@ -23,3 +25,22 @@ for (let j = 10; j < 15; j++) {
 	var k = 24;
 	var k = 25;
 }
+
+// Below shows lexical scoping, which means that nested functions are lexically bound to their parent functions,
+// meaning they have access to the properties defined within their parents/ancestors.
+// However, this is one way, meaning an outer function doesn't have access to variables defined within its inner functions
+function outer() {
+	let movie = 'The Lighthouse';
+
+	function inner() {
+		let movie = 'The Matrix';
+
+		function extraInner() {
+			console.log(movie.toUpperCase());
+		}
+		extraInner();
+	}
+	inner();
+}
+
+outer();
