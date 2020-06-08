@@ -10,3 +10,18 @@ function throwDice(numRolls) {
 }
 
 throwDice(3);
+
+// We can pass multiple arguments to a function.
+// When we return something from a function, we exit the function and no code after the return statement is run
+function add(x, y) {
+	return x + y;
+	console.log('THIS CODE WILL NEVER RUN');
+}
+
+// If evaluating something simply, we can return true or false using a single line.
+function isBlue(colour) {
+	return colour.toLowerCase() === 'blue';
+}
+
+console.log(isBlue('purple'));
+console.log(isBlue('blue'));
