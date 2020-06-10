@@ -37,3 +37,16 @@ const thirdName = getName(runners[2]);
 printInfo(firstName, firstCountry);
 printInfo(secondName, secondCountry);
 printInfo(thirdName, thirdCountry);
+
+//
+//
+// We can also unpack arrays passed as arguments
+const response = [ 'HTTP/1.1', '200 OK', 'application/json' ];
+
+const parseResponse = ([ protocol, statusCode, contentType ]) => {
+	console.log(`Protocol: ${protocol}`);
+	console.log(`Status Code: ${statusCode}`);
+	console.log(`Content Type: ${contentType}`);
+};
+
+parseResponse(response);
