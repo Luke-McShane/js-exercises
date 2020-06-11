@@ -7,6 +7,9 @@
 // The sayHi() function is a method that belongs to the window object, while the fullName() method belongs to the person object,
 // hence why there are two different results for 'this', the former being the window object, the latter being the person const.
 // This is because 'this' pertains to the immediate parent object
+
+// The 'this' keyword thus allows us to have direct access to contents in the parent object. When used inside a method,
+// it means that that method has access to other properties and methods within that same object
 function sayHi() {
 	console.log(this);
 }
@@ -16,6 +19,15 @@ const person = {
 	last: 'McShane',
 	nickname: 'Shaney',
 	fullName() {
-		console.log(this);
+		// This is just some destructuring to save us typing out this.first, this.last, and this.nickname below
+		const { first, last, nickname } = this;
+		console.log(`${first} ${last}, AKA ${nickname}`);
+	},
+
+	printBio() {
+		// We must reference 'this' when calling a method within the object, or else the compiler will not know where we are
+		// looking, and it will state that the method is not defined
+		const fullName = this.fullName();
+		console.log(`${fullName} is a person`);
 	}
 };
