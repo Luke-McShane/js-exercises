@@ -21,3 +21,8 @@ function changeColour(event) {
 	h1.innerText = `I AM ${this.style.backgroundColor.toUpperCase()}`;
 	h1.style.color = this.style.backgroundColor;
 }
+
+// The even object, remember, contains all information about the event that has been used to call the function
+document.body.addEventListener('keypress', function(e) {
+	console.log(`You pressed the '${e.key.toUpperCase()}' key!`);
+});
