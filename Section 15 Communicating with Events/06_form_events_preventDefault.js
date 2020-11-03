@@ -5,6 +5,9 @@ const carsVal = document.querySelector('#cars');
 const list = document.querySelector('#list');
 
 form.addEventListener('submit', function (e) {
+  // preventDefault() prevents the default behaviour of the selected element.
+  // Here, then, the default behaviour of the event (the form) is to submit the data and refresh the page,
+  // but this will no longer happen
   e.preventDefault();
   alert('The form has been submitted');
   console.log(`Card Number: ${cardVal.value} \nAgreed to Terms: ${termsVal.checked} \n
