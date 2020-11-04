@@ -21,3 +21,13 @@ console.log(isRightTriangle(3, 4, 5));
 // from the stack, because we still have functions to call. So the same is now done with square(b)
 // and square(c), until isRightTriangle can return a boolean value, whereafter it is popped from
 // the call stack.
+
+// Understanding the call stack is vital for understanding how asynchronous in JS works
+
+// We can see the call stack in real-time using the dev tools in Chrome:
+// Dev Tools --> Sources --> your js file --> Add breakpoint on line by clicking line number
+// --> Step into each function call and watch the call stack change as you run through
+// your code
+
+// Finally, understand the JS is single-threaded, meaning that, at most, only a single line of code
+// is ever running
