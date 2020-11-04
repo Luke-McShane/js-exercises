@@ -35,12 +35,12 @@ function run() {
 
 // However, if we use var, then only the delcaration is hoisted
 walk();
-var walk = function() {
+var walk = function () {
 	console.log('i am walking');
 };
 
 // And if we use let or const, then nothing is hoisted
 jog();
-const jog = function() {
+const jog = function () {
 	console.log('I am jogging');
 };

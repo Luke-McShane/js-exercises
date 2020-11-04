@@ -8,6 +8,9 @@ var formData = {};
 for (let input of [cardVal, termsVal, carsVal]) {
   // Execute a function on the 'target' property of the input, every time the input
   // value is changed
+  // The 'change' event means that, for the text input, the event is only triggered when the
+  // user either presses enter within the text input, or clicks away (loses focus)
+  // input.addEventListener('change', ({ target }) => {
   input.addEventListener('input', ({ target }) => {
     // Destructure the target, extracting these 4 values
     const { name, type, value, checked } = target;
