@@ -22,7 +22,8 @@ const moveX = (element, amount, delay, onSuccess, onFailure) => {
   }, delay);
 };
 
-// LOOK AT THIS UGLY MESS!
+// Recall that a callback is simply a function we pass as an argument into another function, with the intention of
+// calling this passed function at some point in the main function
 moveX(
   btn,
   300,
