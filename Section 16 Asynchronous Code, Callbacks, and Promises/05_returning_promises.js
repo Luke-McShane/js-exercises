@@ -3,11 +3,12 @@
 const makeSweetPromise = () => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      const rand = Math.random;
+      const rand = Math.random();
       rand < 0.5 ? rej() : res();
-    }, 3000)
+    }, 1500);
   })
 }
 
+// We can chain .then() and .catch() together
 const sweetPromise1 = makeSweetPromise().then(() => console.log('I got the first sweet!')).catch(() => console.log('I did not get the first sweet!'));
 const sweetPromise2 = makeSweetPromise().then(() => console.log('I got the second sweet!')).catch(() => console.log('I did not get the second sweet!'));
