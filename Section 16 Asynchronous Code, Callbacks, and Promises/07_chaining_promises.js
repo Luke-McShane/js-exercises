@@ -1,8 +1,10 @@
 // Here we will see how we can chain promises, and can do so with multiple .then() calls on the same level, without having to nest them
 
+// When we call makeRequest, we can pass in an argument that we can use to determine was is passed back in the resolved function
 const makeRequest = (page) => {
   return new Promise((res, rej) => {
     setTimeout(() => {
+      // So, if '/users' is passed as an argument, this array of objects will be passed back as an argument when the resolved callback is called
       const pages = {
         '/users': [
           { id: 1, username: 'Big Steve' },
@@ -52,6 +54,7 @@ const makeRequest = (page) => {
 
       const data = pages[page];
 
+      // If there is a page extant, then pass the relevant data into the resolved function
       if (data) {
         res({ value: 200, data });
       } else rej({ value: 200 });
@@ -59,6 +62,10 @@ const makeRequest = (page) => {
   })
 }
 
+// We don't need to nest the .then() functions because at the end of each .then() we are actually returning the makeRequest Promise, meaning we leave that level of calling
+// When we return this, we immediately append the .then() onto it and it is run so that, if this returned Promise is resolved, we will go into this new .then() callback with
+// the returned response (res), and do the same here.
+// Because we are only ever one level deep, we only need one catch statement
 const request = makeRequest('/users')
   .then((res) => {
     console.log('FIRST REQUEST');
