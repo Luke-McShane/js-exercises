@@ -13,6 +13,18 @@ request.addEventListener('load', () => {
   const data = JSON.parse(request.responseText);
   console.log(request);
   Object.entries(data).forEach(([key, val]) => console.log(`${key}: ${val}`))
+
+  // We can also chain requests by using the data received from the first request to create a second request.
+  const filmURL = data.films[0];
+  const filmRequest = new XMLHttpRequest();
+  filmRequest.onerror = (e) => console.log('The second request failed!');
+  filmRequest.onload = () => {
+    console.log('The second request worked!');
+    const filmData = JSON.parse(filmRequest.responseText);
+    console.log(`Film Title: Star Wars - ${filmData.title}`);
+  };
+  filmRequest.open('GET', filmURL);
+  filmRequest.send();
 });
 
 // If the request results in an error, run this code
