@@ -18,12 +18,12 @@ const printPlanets = (data, first = false) => {
 }
 
 const starWarsRequest = fetchPlanets()
-  .then((res) => checkAndParse(res))
+  .then(checkAndParse)
   .then((data) => printPlanets(data, true))
-  .then((next10Url) => fetchPlanets(next10Url))
-  .then((next10Res) => checkAndParse(next10Res))
-  .then((next10Data) => printPlanets(next10Data))
-  .then((next10Url) => fetchPlanets(next10Url))
-  .then((next10Res) => checkAndParse(next10Res))
-  .then((next10Data) => printPlanets(next10Data))
+  .then(fetchPlanets)
+  .then(checkAndParse)
+  .then(printPlanets)
+  .then(fetchPlanets)
+  .then(checkAndParse)
+  .then(printPlanets)
   .catch((err) => console.log(err));
