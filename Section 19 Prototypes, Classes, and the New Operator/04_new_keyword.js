@@ -29,6 +29,12 @@ Colour.prototype.rgba = function (a = 1.0) {
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
+// The new keyword:
+// 1 - Creates a blank, plain JavaScript object;
+// 2 - Links (sets the constructor of) the newly created object to another object by setting the other object as its parent prototype;
+// 3 - Passes the newly created object from Step 1 as the this context;
+// 4 - Returns this if the function doesn't return an object.
+
 const colour1 = new Colour(123, 52, 215);
 const colour2 = new Colour(22, 221, 152);
 const colour3 = new Colour(243, 194, 25);
