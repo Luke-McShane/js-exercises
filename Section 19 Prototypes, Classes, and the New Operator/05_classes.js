@@ -3,7 +3,13 @@
 // This is syntactical sugar, meaning that the same outcome is achieved, but the complexities are hidden away behind the scenes
 // Whenever inside the class definition, the 'this' keyword will be referencing the individual instance of the class (the object)
 
-class Coiour {
+// The methods that each object instance will have will be found in the __proto__ property of the instance, because they have
+// inherited those methods from the class
+
+// The constructor is always automatically run whenever you instantiate a new object from the respective class
+// The properties within the constructor are automatically added as properties to that object instance
+
+class Colour {
   constructor(r, g, b, name) {
     this.r = r;
     this.g = g;
@@ -11,9 +17,17 @@ class Coiour {
     this.name = name;
   }
 
-  rgb() {
+  innerRGB() {
     const { r, g, b } = this;
-    return `rgb(${r}, ${g}, ${b})`;
+    return `${r}, ${g}, ${b}`;
+  }
+
+  rgba(a = 1.0) {
+    return `rgba(${this.rgba()}, ${a})`;
+  }
+
+  rgb() {
+    return `rgb(${this.innerRGB()})`;
   }
 
   hex() {
