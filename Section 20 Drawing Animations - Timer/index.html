@@ -1,14 +1,25 @@
+
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timer App</title>
-</head>
-<body>
-  <!-- The origin of the SVG is at the top-left of the element -->
-  <svg height="200" width="200">
-    <!-- The cx represents where on the x-axis the center point will be
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="timer">
+      <div class="controls">
+        <input id="time" value="3" />
+        <div>
+          <button id="start"><i class="fas fa-play"></i></button>
+          <button id="pause"><i class="fas fa-pause"></i></button>
+        </div>
+      </div>
+       <!-- The cx represents where on the x-axis the center point will be
          The cy represents where on the y-axis the center point will be
          The r represents the radius of the circle
          We can have as many shape elements within the SVG as we wish, but
@@ -40,29 +51,23 @@
         at the right-hand side.
         The rotate takes 3 arguments: The first is the amount of degrees, and the second two
         determine the x and y coords, respectively, at where will be the centerpoint of the rotation
-        
+
         stroke-dasharray="565"
         stroke-dashoffset="0"-->
-        
-    <circle
-      fill="transparent"
-      stroke="purple"
-      stroke-width="10"
+      <svg class="dial">
+        <circle
+          fill="transparent"
+          stroke="green"
+          stroke-width="15"
+          r="190"
+          cx="0"
+          cy="200"
+          transform="rotate(-90 100 100)"
+        />
+      </svg>
+    </div>
 
-
-      r="90" 
-      cx="100" 
-      cy="100"
-      
-      transform="rotate(-90 100 100)">
-    </circle>
-  </svg>
-  
-  <input type="text" id="time" value="30">
-  <button id="start">Start</button>
-  <button id="pause">Pause</button>
-
-  <script src="timer.js"></script>
-  <script src="index.js"></script>
-</body>
+    <script src="timer.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
