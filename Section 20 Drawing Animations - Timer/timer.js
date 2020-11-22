@@ -55,7 +55,7 @@ class Timer {
   // Another point is that you can use the online compiler Babbel to see how you code is actually run on older browsers using the software
 
   // Each argument will be a DOM element
-  constructor(durationInput, playButton, pauseButton, callbacks) {
+  constructor(durationInput, playButton, pauseButton, circle, callbacks) {
     this.durationInput = durationInput;
     this.playButton = playButton;
     this.pauseButton = pauseButton;
@@ -88,11 +88,11 @@ class Timer {
     // However, if we define the method using an arrow function, then there is no binding of 'this'
     // Instead, the value of 'this' always refers to the object that defined the method
     if (this.onStart) {
-      this.onStart();
+      this.onStart(this.timeRemaining);
     }
     this.tick();
     // When we call setInterval, we are returned an integer, which is an ID that pertains to this ongoing timer, which we can reference when wanting to pause a timer
-    this.intervalId = setInterval(this.tick, 1000);
+    this.intervalId = setInterval(this.tick, 50);
 
   }
 
@@ -111,10 +111,14 @@ class Timer {
     if (this.timeRemaining <= 0) {
       this.onStop();
       this.pause();
+      if (this.onComplete) {
+        this.onComplete();
+      }
     } else {
-      this.timeRemaining = this.timeRemaining - 1;
+      this.timeRemaining -= 0.05;
+
       if (this.onTick) {
-        this.onTick();
+        this.onTick(this.timeRemaining);
       }
     }
   }
@@ -125,7 +129,7 @@ class Timer {
   }
 
   set timeRemaining(time) {
-    this.durationInput.value = time;
+    this.durationInput.value = time.toFixed(2);
   }
 
   // Call whenever the user changes the duration value

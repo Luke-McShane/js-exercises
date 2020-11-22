@@ -8,7 +8,54 @@
 <body>
   <!-- The origin of the SVG is at the top-left of the element -->
   <svg height="200" width="200">
-    <circle r="20" cx="20" cy="20"></circle>
+    <!-- The cx represents where on the x-axis the center point will be
+         The cy represents where on the y-axis the center point will be
+         The r represents the radius of the circle
+         We can have as many shape elements within the SVG as we wish, but
+         if any elements go outside the bounds of the SVG, these parts will be clipped
+         We also have stroke, stroke-width, and fill properties.
+         The stroke refers to the border of the circle, whereas the fill refers to the
+         inside of the circle.
+         These properties are set to colours, while the stroke-width is a number 
+         We can set the fill to 'transparent', allowing us to have elements be placed
+         within the circle and still be visible
+        
+         The 'stroke-dasharray' property refers to how long each dash will be, and how
+         many pixels there will be between each dash.
+         We can pass in another value, so the first will be the dash length, the second
+         the units of spacing between each dash
+        
+        Because the perimeter of the circle is pi x r x 2, we can make it so the dash length
+        is the entire perimeter, and slowly decrease this value so we can have border that
+        appears to decrease in size
+      
+        The SVG border always starts on the right-hand side, and works its way around clockwise 
+      
+        The 'dash-offset' property represents how much the array dash will be shifted/offset 
+        This allows. It defines how far along the SVG path a dash will begin. So if we set it
+        to the size of the dash, then we will displace the start by a full dash 
+      
+        We can make the dashoffset negative so the offset goes clockwise
+        We can also add a transform so the offset begins at the top of the circle, rather than
+        at the right-hand side.
+        The rotate takes 3 arguments: The first is the amount of degrees, and the second two
+        determine the x and y coords, respectively, at where will be the centerpoint of the rotation
+        
+        stroke-dasharray="565"
+        stroke-dashoffset="0"-->
+        
+    <circle
+      fill="transparent"
+      stroke="purple"
+      stroke-width="10"
+
+
+      r="90" 
+      cx="100" 
+      cy="100"
+      
+      transform="rotate(-90 100 100)">
+    </circle>
   </svg>
   
   <input type="text" id="time" value="30">
