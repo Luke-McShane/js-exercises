@@ -1,6 +1,27 @@
-const getMovies = (url) => axios.get(url);
+const getMovies = async (key, movieTitle) => {
+  // With the second parameter, the .get method automatically forms the string for us, appending the arguments to the API request appropriately
+  const response = await axios.get('http://www.omdbapi.com/', {
+    params: {
+      apikey: key,
+      s: movieTitle
+    }
+  });
+
+  printMovies(response);
+}
+
+const getMovie = async (key, movieTitle) => {
+  const response = await axios.get('http://www.omdbapi.com/', {
+    params: {
+      apikey: key,
+      t: movieTitle
+    }
+  });
+
+  printMovies(response);
+}
+
 const printMovies = ({ data }) => {
-  debugger;
   console.log(data);
 
   // for (let film of data.result) {
@@ -8,6 +29,5 @@ const printMovies = ({ data }) => {
   // }
 }
 
-getMovies('http://www.omdbapi.com/?apikey=4d28104b&t=manhattan')
-  .then((res) => printMovies(res))
-  .catch((err) => console.log(`OH NO: ${err}`));
+getMovies('4d28104b', 'manhattan');
+getMovie('4d28104b', 'manhattan');
